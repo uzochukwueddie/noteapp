@@ -9,3 +9,31 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+ion-menu {
+    ion-content {
+        ion-item-group {
+            background: #f3f3f3;
+        }
+
+        ion-list-header {
+            color: white;
+            background: var(--ion-color-primary);
+        }
+
+        ion-icon {
+            color: #b8b5b5;
+        }
+    }
+}
+
+ion-spinner {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

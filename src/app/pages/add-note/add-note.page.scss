@@ -1,0 +1,40 @@
+ion-header {
+    ion-toolbar {
+        border-bottom: 1px solid #cacaca !important;
+        ion-buttons {
+            ion-back-button {
+                color: var(--ion-color-primary);
+            }
+            
+            ion-icon {
+                height: 28px;
+                width: 44px;
+                color: var(--ion-color-primary);
+            }
+        }
+    }
+}
+
+ion-content {
+    ion-row {
+        width: 100%;
+
+        ion-col {
+            width: 100%;
+            div {
+                ion-label {
+                    display: flex;
+
+                    .tagIcon {
+                        margin-left: auto;
+                        font-size: 25px;
+                    }
+                    .favIcon {
+                        font-size: 25px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

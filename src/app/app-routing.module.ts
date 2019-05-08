@@ -4,17 +4,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'notes',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
+  { path: 'notes', loadChildren: './pages/notes/notes.module#NotesPageModule' },
+  { path: 'add-note/:tag', loadChildren: './pages/add-note/add-note.module#AddNotePageModule' },
+  { path: 'tags-modal', loadChildren: './pages/tags-modal/tags-modal.module#TagsModalPageModule' },
+  { path: 'edit-note/:id/:noteId', loadChildren: './pages/edit-note/edit-note.module#EditNotePageModule' }
 ];
 
 @NgModule({

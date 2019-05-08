@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-title *ngIf="!isFocused">Note</ion-title>
+    <ion-title *ngIf="isFocused">Edit note</ion-title>
+    <ion-buttons slot="end" (click)="editNote()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <div>
+        <ion-label>
+          <p>{{currentDate | date: 'dd MMM y, h:mm a'}}</p>
+          <ion-icon class="tagIcon" name="bookmark" (click)="showTagsModal()" [color]="tagColor" slot="end"></ion-icon>
+          <ion-icon class="favIcon" color="primary" *ngIf="!favorite" (click)="favoriteNote()" name="star-outline" slot="end"></ion-icon>
+          <ion-icon class="favIcon" color="primary" *ngIf="favorite" (click)="favoriteNote()" name="star" slot="end"></ion-icon>
+        </ion-label>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div>
+    <ion-textarea 
+      rows="1" 
+      [(ngModel)]="description"
+      (ionFocus)="inputFocused()"
+      (ionBlur)="inputBlur()"
+      [value]="description"
+      appResize
+      >
+    </ion-textarea>
+  </div>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-tab-bar>
+      <ion-tab-button (click)="deleteNote()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-toolbar>
+</ion-footer>
+
+  
+  

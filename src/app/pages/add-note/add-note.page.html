@@ -1,0 +1,32 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add note</ion-title>
+    <ion-buttons slot="end" (click)="addNote()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <div>
+        <ion-label>
+          <p>{{currentDate | date: 'dd MMM y, h:mm a'}}</p>
+          <ion-icon class="tagIcon" name="bookmark" (click)="showTagsModal()" [color]="tagColor" slot="end"></ion-icon>
+          <ion-icon class="favIcon" color="primary" *ngIf="!favorite" (click)="favoriteNote()" name="star-outline" slot="end"></ion-icon>
+          <ion-icon class="favIcon" color="primary" *ngIf="favorite" (click)="favoriteNote()" name="star" slot="end"></ion-icon>
+        </ion-label>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div>
+    <ion-textarea rows="1" autofocus="true" [(ngModel)]="description" appResize></ion-textarea>
+  </div>
+
+</ion-content>
+

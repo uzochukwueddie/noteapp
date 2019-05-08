@@ -1,18 +1,56 @@
 <ion-app>
   <ion-split-pane>
     <ion-menu>
-      <ion-header>
+      <!-- <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
         </ion-toolbar>
-      </ion-header>
+      </ion-header> -->
       <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+          <ion-item-group>
+            <ion-list-header>
+              <ion-label>Notes</ion-label>
+            </ion-list-header>
+          </ion-item-group>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of notePages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [queryParams]="{title: p.title}">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
+              <ion-label *ngIf="p.title === 'All notes'; else notAllNotes">
+                {{p.title}} ({{allNotes}})
+              </ion-label>
+              <ng-template #notAllNotes>
+                <ion-label>
+                  {{p.title}} ({{favorites}})
+                </ion-label>
+              </ng-template>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list>
+          <ion-item-group>
+            <ion-list-header>
+              <ion-label>Tags</ion-label>
+            </ion-list-header>
+          </ion-item-group>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of tagsPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [queryParams]="{title: p.title}">
+              <ion-icon slot="start" [name]="p.icon" [color]="p.color"></ion-icon>
+              <ion-label *ngIf="p.title === 'Travel'">
+                {{p.title}} ({{tagsLength.travel}})
+              </ion-label>
+              <ion-label *ngIf="p.title === 'Life'">
+                {{p.title}} ({{tagsLength.life}})
+              </ion-label>
+              <ion-label *ngIf="p.title === 'Personal'">
+                {{p.title}} ({{tagsLength.personal}})
+              </ion-label>
+              <ion-label *ngIf="p.title === 'Work'">
+                {{p.title}} ({{tagsLength.work}})
+              </ion-label>
+              <ion-label *ngIf="p.title === 'Untagged'">
+                {{p.title}} ({{tagsLength.untagged}})
               </ion-label>
             </ion-item>
           </ion-menu-toggle>

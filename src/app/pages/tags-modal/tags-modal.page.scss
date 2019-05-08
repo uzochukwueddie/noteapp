@@ -1,0 +1,18 @@
+ion-header {
+    ion-toolbar {
+        border-bottom: 1px solid #cacaca !important;
+        ion-buttons {
+            ion-icon {
+                height: 28px;
+                width: 44px;
+                color: var(--ion-color-primary);
+            }
+        }
+    }
+}
+
+ion-content {
+    ion-radio {
+        --color: var(--ion-color-primary);
+    }
+}

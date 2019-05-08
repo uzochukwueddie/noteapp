@@ -1,5 +1,7 @@
 {
   "name": "noteapp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
